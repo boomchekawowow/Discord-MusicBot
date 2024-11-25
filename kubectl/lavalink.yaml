@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lavalink
+  labels:
+    app: lavalink
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lavalink
+  template:
+    metadata:
+      labels:
+        app: lavalink
+    spec:
+      containers:
+      - name: lavalink
+        image: us-central1-docker.pkg.dev/trusty-anchor-442805-h7/quickstart-docker-repo/fredboat/lavalink:latest
+        volumeMounts:
+        - name: application-config
+          mountPath: /opt/Lavalink/application.yml
+          subPath: application.yml
+        restartPolicy: Always
+      volumes:
+      - name: application-config
+        hostPath:
+          path: ./docker/application.yml

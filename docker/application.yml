@@ -1,5 +1,5 @@
 server: # REST and WS server
-  port: 2334
+  port: ${PORT:2334} # Default to 2333 if PORT is not set
   address: 0.0.0.0
 plugins:
   youtube:

@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: discord-musicbot
+  labels:
+    app: discord-musicbot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: discord-musicbot
+  template:
+    metadata:
+      labels:
+        app: discord-musicbot
+    spec:
+      containers:
+      - name: discord-musicbot
+        image: us-central1-docker.pkg.dev/trusty-anchor-442805-h7/quickstart-docker-repo/discord-musicbot:latest
+        volumeMounts:
+        - name: config-volume
+          mountPath: /usr/src/app/config.js
+          subPath: config.js
+      volumes:
+      - name: config-volume
+        hostPath:
+          path: ./config.js
