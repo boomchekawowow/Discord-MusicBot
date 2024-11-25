@@ -3,7 +3,7 @@ version: "3"
 services:
   discord-musicbot:
     build: .
-    image: discord-musicbot:latest
+    image: us-central1-docker.pkg.dev/trusty-anchor-442805-h7/quickstart-docker-repo/discord-musicbot:latest
     container_name: discord-musicbot
     restart: unless-stopped
     networks:
@@ -14,7 +14,7 @@ services:
       - ./config.js:/usr/src/app/config.js:ro
 
   lavalink:
-    image: fredboat/lavalink:3.7.12
+    image: us-central1-docker.pkg.dev/trusty-anchor-442805-h7/quickstart-docker-repo/fredboat/lavalink:latest
     container_name: music-lavalink
     hostname: lavalink
     restart: unless-stopped
