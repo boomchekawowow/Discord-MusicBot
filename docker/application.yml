@@ -1,4 +1,5 @@
 server: # REST and WS server
+  port: 2334
   address: 0.0.0.0
 plugins:
   youtube:
@@ -12,8 +13,9 @@ plugins:
 #    another_key: another_value
 lavalink:
   plugins:
-    - dependency: "dev.lavalink.youtube:youtube-plugin:1.3.0"
-      repository: "https://maven.lavalink.dev/releases"
+    # Replace VERSION with the current version as shown by the Releases tab or a long commit hash for snapshots.
+    - dependency: "dev.lavalink.youtube:youtube-plugin:1.8.3"
+      snapshot: false
   pluginsDir: "./plugins"
   server:
     password: "youshallnotpass"
