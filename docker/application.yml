@@ -1,5 +1,4 @@
 server: # REST and WS server
-  port: 2334
   address: 0.0.0.0
 plugins:
   youtube:
